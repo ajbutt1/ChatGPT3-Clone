@@ -6,16 +6,54 @@
   <link rel="icon" type="image/svg+xml" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zenox - Your AI</title>
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="style.css" />
 </head>
+<!-- Trigger an event on Option Selected in Html -->
 
 <body>
   <div id="app">
-    <div id="chat_container"></div>
+    <div id="main">
+      <!-- Sidebar Menu -->
+      <div id="nav__menu">
+        <ul>
+          <li id="menu_header" class="font_style flex_c j_center a_center">
+            <div class="flex_r j_center a_center">
+              <img src="favicon.ico" alt="Zenox-Logo">
+              <span class="sidebar_title">Zenox Chat App</span>
+            </div>
+            <div class="dev_desc flex_r j_center a_center">
+              <span>Developed <i class="las la-code color__green"></i> with <i class="las la-heart color__red"></i>
+                &amp;
+                <i class="las la-coffee color__brown"></i> By <a
+                  href="https://www.linkedin.com/in/zelalem-gizachew-28012a230/">Zelalem Gizachew</a></span>
+            </div>
+          </li>
+          <li>
+            <select id="language" name="lang">
+              <option value="en" selected>English</option>
+              <option value="am">አማርኛ</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Sidebar Nav Button -->
+      <div id="nav_btn">
+        <button id="nav__btn">
+          <i class="las la-bars"></i>
+        </button>
+      </div>
+
+      <!-- Chat Container -->
+      <div id="chat_container"></div>
+    </div>
+
 
     <form>
       <textarea name="prompt" rows="1" cols="1" placeholder="Ask Zenox..."></textarea>
-      <button type="submit"><img src="assets/send.svg" alt="send" />
+      <button id="submit__btn" type="submit"><img src="assets/send.svg" alt="send" />
     </form>
   </div>
 

@@ -3,6 +3,7 @@ import user from "./assets/user.svg";
 
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
+var lang = "en";
 
 let loadInterval;
 
@@ -20,8 +21,20 @@ function loader(element) {
 	}, 300);
 }
 
+const translateText = async (text) => {
+	const tr_response = await fetch("GOOGLE_TRANSLATE_ENDPOINT", {});
+
+	console.log(tr_response);
+
+	return 0;
+};
+
 function typeText(element, text) {
 	let index = 0;
+	// text = translateText(text);
+	// if (lang !== "en") {
+	// 	text = translateText(text);
+	// }
 
 	let interval = setInterval(() => {
 		if (index < text.length) {
@@ -84,7 +97,7 @@ const handleSubmit = async (e) => {
 	// messageDiv.innerHTML = "..."
 	loader(messageDiv);
 
-	const response = await fetch("https://localhost:5000", {
+	const response = await fetch("http://localhost:5000", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -109,6 +122,20 @@ const handleSubmit = async (e) => {
 		alert(err);
 	}
 };
+
+document.getElementById("nav__btn").addEventListener("click", function () {
+	if (document.getElementById("nav__menu").style.display === "none") {
+		document.getElementById("nav__menu").style.display = "block";
+	} else {
+		document.getElementById("nav__menu").style.display = "none";
+	}
+});
+
+document.getElementById("language").addEventListener("change", function () {
+	if (this.value !== "en") {
+		lang = this.value;
+	}
+});
 
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {

@@ -22,9 +22,104 @@ body {
   justify-content: space-between;
 }
 
+#main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#nav_btn button {
+  color: #dcdcdc;
+  font-size: 48px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  height: 48px;
+  width: 56px;
+  text-align: center;
+}
+
+#nav__menu {
+  display: none;
+  width: 450px;
+  height: fit-content;
+  text-align: center;
+}
+
+#menu_header {
+  padding-top: 50px !important;
+}
+
+#nav__menu li {
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #5e5c5c;
+}
+
+.font_style {
+  font-size: 48px;
+  font-weight: bold;
+  color: #4f95e0;
+}
+
+.flex_c {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_r {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex_r img {
+  width: 58px;
+  width: 58px;
+}
+
+.sidebar_title {
+  font-size: 36px;
+  padding-left: 7px;
+}
+
+.j_center {
+  justify-content: center;
+}
+
+.a_center {
+  align-items: center;
+}
+
+.dev_desc {
+  font-size: 16px;
+}
+
+.dev_desc .color__green {
+  color: green;
+  font-size: larger;
+  padding-right: 3px;
+}
+
+.dev_desc .color__red {
+  color: rgb(190, 15, 15);
+  font-size: larger;
+  padding-right: 3px;
+}
+
+.dev_desc .color__brown {
+  color: rgb(80, 8, 8);
+  font-size: larger;
+  padding-right: 3px;
+}
+
+.dev_desc a {
+  color: rgb(13, 196, 196);
+}
+
 #chat_container {
   flex: 1;
-  width: 100%;
+  width: 80%;
   height: 100%;
   overflow-y: scroll;
 
@@ -37,6 +132,18 @@ body {
 
   padding-bottom: 20px;
   scroll-behavior: smooth;
+
+  margin-left: 60px;
+}
+
+#language {
+  color: white;
+  background: #40414F;
+  /* font-weight: bold; */
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  height: 40px;
+  width: 100%;
 }
 
 /* hides scrollbar */
@@ -101,7 +208,7 @@ body {
    * The pre-wrap value allows the browser to wrap long lines of text onto multiple lines if necessary.
    * The default value for the white-space property in CSS is "normal". This tells the browser to collapse multiple white space characters into a single space, and to wrap text onto multiple lines as needed to fit within its container.
   */
-  white-space: pre-wrap; 
+  white-space: pre-wrap;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -137,7 +244,7 @@ textarea {
   outline: none;
 }
 
-button {
+#submit__btn {
   outline: 0;
   border: 0;
   cursor: pointer;
