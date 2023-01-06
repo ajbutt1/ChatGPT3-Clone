@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import { Configuration, OpenAIApi } from "openai";
 import fs from "fs";
+import axios from "axios";
 
 dotenv.config();
 
@@ -16,6 +17,24 @@ const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+translateText("Hi", "en");
+function translateText(text, lang) {
+	let data = {
+		text: text,
+		src_lang: "auto",
+		tgt_lang: lang,
+	};
+
+	axios.post("https://lesan.ai/translate-text", data).then(function (response) {
+		// const userJson = response.data;
+		console.log(response.data[0]["text"]);
+	});
+
+	// console.log(tr_response);
+
+	return 0;
+}
 
 app.get("/", async (req, res) => {
 	res.status(200).send({
@@ -75,9 +94,3 @@ app.post("/user", async (req, res) => {
 app.listen(5000, () =>
 	console.log("AI server started on http://localhost:5000")
 );
-
-// getUserData();
-
-function getUserData() {
-	//
-}

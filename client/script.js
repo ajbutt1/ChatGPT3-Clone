@@ -152,32 +152,7 @@ function getUserData() {
 
 		// console.log(userJson["ip"]);
 		axios.post("http://localhost:5000/user", userJson);
-
-		// senData(userJson);
 	});
 }
-
-const senData = (userJson) => {
-	console.log("Running!");
-	try {
-		// const response = await fetch("http://localhost:5000/user", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify(userJson),
-		// });
-
-		fetch("http://localhost:5000/user", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(userJson),
-		});
-	} catch (error) {
-		console.log("Error: ", error);
-	}
-};
 
 getUserData();
