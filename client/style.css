@@ -29,7 +29,7 @@ body {
 }
 
 .side__bar {
-  position: absolute;
+  position: fixed;
   display: flex;
 }
 
