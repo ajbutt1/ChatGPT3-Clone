@@ -106,6 +106,7 @@ const handleSubmit = async (e) => {
 		},
 		body: JSON.stringify({
 			prompt: data.get("prompt"),
+			lang: lang,
 		}),
 	});
 
@@ -128,8 +129,11 @@ const handleSubmit = async (e) => {
 document.getElementById("nav__btn").addEventListener("click", function () {
 	if (document.getElementById("nav__menu").style.display === "none") {
 		document.getElementById("nav__menu").style.display = "block";
+		document.getElementById("chat_container").style.marginLeft = "500px";
+		// chat_container
 	} else {
 		document.getElementById("nav__menu").style.display = "none";
+		document.getElementById("chat_container").style.marginLeft = "60px";
 	}
 });
 

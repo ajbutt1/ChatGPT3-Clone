@@ -28,6 +28,11 @@ body {
   flex-direction: row;
 }
 
+.side__bar {
+  position: absolute;
+  display: flex;
+}
+
 #nav_btn button {
   color: #dcdcdc;
   font-size: 48px;
@@ -45,6 +50,7 @@ body {
   width: 450px;
   height: fit-content;
   text-align: center;
+  position: sticky;
 }
 
 #menu_header {

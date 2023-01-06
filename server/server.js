@@ -18,8 +18,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-translateText("Hi", "en");
-function translateText(text, lang) {
+const translateText = async (text, lang) => {
 	let data = {
 		text: text,
 		src_lang: "auto",
@@ -27,14 +26,16 @@ function translateText(text, lang) {
 	};
 
 	axios.post("https://lesan.ai/translate-text", data).then(function (response) {
-		// const userJson = response.data;
-		console.log(response.data[0]["text"]);
+		console.log("||> " + response.data[0]["text"]);
+		return response.data[0]["text"];
 	});
 
-	// console.log(tr_response);
+	// console.log("Res: " + responses.data[0]["text"]);
+	// return text;
+};
 
-	return 0;
-}
+// const xx = await translateText("ጤና ይስጥልኝ! እንዴት ነህ?", "en");
+// console.log("|> " + xx);
 
 app.get("/", async (req, res) => {
 	res.status(200).send({
@@ -44,21 +45,58 @@ app.get("/", async (req, res) => {
 
 app.post("/", async (req, res) => {
 	try {
-		const prompt = req.body.prompt;
+		let prompt = req.body.prompt;
+		const lang = req.body.lang;
 
-		const response = await openai.createCompletion({
-			model: "text-davinci-003",
-			prompt: `${prompt}`,
-			temperature: 0,
-			max_tokens: 3000,
-			top_p: 1,
-			frequency_penalty: 0.5,
-			presence_penalty: 0,
-		});
+		// console.log("Language: ", lang);
 
-		res.status(200).send({
-			bot: response.data.choices[0].text,
-		});
+		if (lang === "en") {
+			const response = await openai.createCompletion({
+				model: "text-davinci-003",
+				prompt: `${prompt}`,
+				temperature: 0,
+				max_tokens: 3000,
+				top_p: 1,
+				frequency_penalty: 0.5,
+				presence_penalty: 0,
+			});
+
+			res.status(200).send({
+				bot: response.data.choices[0].text,
+			});
+		} else {
+			// let engText = translateText(prompt, "en");
+			var data = {
+				text: prompt,
+				src_lang: "am",
+				tgt_lang: "en",
+			};
+			var engText = await axios.post("https://lesan.ai/translate-text", data);
+
+			// console.log(" :-: ", engText.data[0]["text"]);
+			const response = await openai.createCompletion({
+				model: "text-davinci-003",
+				prompt: `${engText.data[0]["text"]}`,
+				temperature: 0,
+				max_tokens: 3000,
+				top_p: 1,
+				frequency_penalty: 0.5,
+				presence_penalty: 0,
+			});
+
+			// let res_data = translateText(response.data.choices[0].text, "am");
+
+			data = {
+				text: response.data.choices[0].text,
+				src_lang: "auto",
+				tgt_lang: "am",
+			};
+			var amhText = await axios.post("https://lesan.ai/translate-text", data);
+
+			res.status(200).send({
+				bot: amhText.data[0]["text"],
+			});
+		}
 	} catch (error) {
 		console.error(error);
 		res.status(500).send(error || "Something went wrong");
