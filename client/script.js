@@ -130,10 +130,12 @@ document.getElementById("nav__btn").addEventListener("click", function () {
 	if (document.getElementById("nav__menu").style.display === "none") {
 		document.getElementById("nav__menu").style.display = "block";
 		document.getElementById("chat_container").style.marginLeft = "500px";
+		document.getElementById("menu_icon").className = "las la-times";
 		// chat_container
 	} else {
 		document.getElementById("nav__menu").style.display = "none";
 		document.getElementById("chat_container").style.marginLeft = "60px";
+		document.getElementById("menu_icon").className = "las la-bars";
 	}
 });
 
