@@ -99,7 +99,7 @@ const handleSubmit = async (e) => {
 	// messageDiv.innerHTML = "..."
 	loader(messageDiv);
 
-	const response = await fetch("http://localhost:5000", {
+	const response = await fetch("https://zenox.onrender.com", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -157,7 +157,7 @@ function getUserData() {
 		const userJson = response.data;
 
 		// console.log(userJson["ip"]);
-		axios.post("http://localhost:5000/user", userJson);
+		axios.post("https://zenox.onrender.com/user", userJson);
 	});
 }
 

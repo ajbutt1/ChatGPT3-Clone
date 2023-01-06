@@ -1,1 +1,7 @@
-[{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 14:06:30 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 16:52:09 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 16:57:03 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 16:57:25 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 17:36:08 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:26:10 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:38:57 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:42:38 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:45:28 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:45:58 GMT+0300 (East Africa Time)","view":1},{"ip":"196.189.18.76","timestamp":"Fri Jan 06 2023 18:55:00 GMT+0300 (East Africa Time)","view":1}]
+[
+	{
+		"ip": "196.189.18.76",
+		"timestamp": "Fri Jan 06 2023 14:06:30 GMT+0300 (East Africa Time)",
+		"view": 1
+	}
+]
