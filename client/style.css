@@ -81,7 +81,7 @@ body {
 
 .flex_r img {
   width: 58px;
-  width: 58px;
+  height: 58px;
 }
 
 .sidebar_title {
@@ -260,4 +260,41 @@ textarea {
 form img {
   width: 30px;
   height: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+
+  /* CSS Rules */
+  #nav_btn button {
+    font-size: 24px;
+    height: 28px;
+    width: 36px;
+  }
+
+  .sidebar_title {
+    font-size: 24px;
+    padding-left: 7px;
+  }
+
+  .flex_r {
+    flex-direction: column;
+  }
+
+  .dev_desc {
+    font-size: 12px;
+  }
+
+  #nav__menu {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .dev_desc {
+    font-size: 10px;
+  }
+
+  #nav__menu {
+    width: 230px;
+  }
 }
