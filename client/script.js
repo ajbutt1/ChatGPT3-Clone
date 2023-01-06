@@ -1,5 +1,7 @@
 import bot from "./assets/bot.svg";
+import zenox from "./assets/zenox.svg";
 import user from "./assets/user.svg";
+import axios from "axios";
 
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
@@ -143,3 +145,39 @@ form.addEventListener("keyup", (e) => {
 		handleSubmit(e);
 	}
 });
+
+function getUserData() {
+	axios.get("https://api.ipify.org?format=json").then(function (response) {
+		const userJson = response.data;
+
+		// console.log(userJson["ip"]);
+		axios.post("http://localhost:5000/user", userJson);
+
+		// senData(userJson);
+	});
+}
+
+const senData = (userJson) => {
+	console.log("Running!");
+	try {
+		// const response = await fetch("http://localhost:5000/user", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	body: JSON.stringify(userJson),
+		// });
+
+		fetch("http://localhost:5000/user", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(userJson),
+		});
+	} catch (error) {
+		console.log("Error: ", error);
+	}
+};
+
+getUserData();
